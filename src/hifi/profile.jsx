@@ -18,7 +18,7 @@ function HFProfileScreen() {
   const max = Math.max(...pyramid.map(p => p.sent + p.project));
   return (
     <HFPhone>
-      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 80, overflow: 'hidden' }}>
+      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 80, overflowY: 'auto', overflowX: 'hidden', WebkitOverflowScrolling: 'touch' }}>
         {/* Banner image */}
         <div style={{ position: 'relative' }}>
           <Photo src={HF_IMG.outdoor1} height={140} dim={0.35} />

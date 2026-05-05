@@ -1,15 +1,26 @@
 // hifi-feed.jsx — refined feed with real imagery
 
 function HFFeedHeader() {
+  const openPicker = () => window.UC && window.UC.openPicker && window.UC.openPicker();
   return (
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '6px 16px 12px' }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '6px 16px 12px' }}>
       <AFCLockup size={20} color={HF.ink} accent={HF.accent} />
-      <div style={{ display: 'flex', gap: 8 }}>
-        <HFIconBtn size={34}>{HFIcon.search(15)}</HFIconBtn>
-        <div style={{ position: 'relative' }}>
-          <HFIconBtn size={34}>{HFIcon.bell(15)}</HFIconBtn>
-          <span style={{ position: 'absolute', top: 6, right: 6, width: 8, height: 8, background: HF.accent, borderRadius: '50%', border: `1.5px solid ${HF.paper}` }} />
-        </div>
+      <div style={{ flex: 1 }} />
+      <button
+        onClick={openPicker}
+        title="Browse all screens"
+        style={{
+          fontFamily: HF.mono, fontSize: 10, fontWeight: 800, letterSpacing: 1.5,
+          color: '#fff', background: HF.accent,
+          border: 'none', padding: '7px 10px', cursor: 'pointer',
+          boxShadow: `2px 2px 0 ${HF.rule}`,
+          textTransform: 'uppercase',
+        }}
+      >SCREENS</button>
+      <HFIconBtn size={34}>{HFIcon.search(15)}</HFIconBtn>
+      <div style={{ position: 'relative' }}>
+        <HFIconBtn size={34}>{HFIcon.bell(15)}</HFIconBtn>
+        <span style={{ position: 'absolute', top: 6, right: 6, width: 8, height: 8, background: HF.accent, borderRadius: '50%', border: `1.5px solid ${HF.paper}` }} />
       </div>
     </div>
   );
@@ -187,7 +198,7 @@ function HFSessionPost() {
 function HFFeedScreen() {
   return (
     <HFPhone>
-      <div style={{ position: 'absolute', top: 54, left: 0, right: 0, bottom: 80, overflow: 'hidden' }}>
+      <div style={{ position: 'absolute', top: 54, left: 0, right: 0, bottom: 80, overflowY: 'auto', overflowX: 'hidden', WebkitOverflowScrolling: 'touch' }}>
         <HFFeedHeader />
         <div style={{ borderTop: `1px solid ${HF.ruleSft}` }} />
         <HFStoryRail />

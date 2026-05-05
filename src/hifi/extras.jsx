@@ -22,7 +22,7 @@ function HFComposerScreen() {
             </div>
           </Photo>
         </div>
-        <div style={{ padding: '14px 14px 0', flex: 1, overflow: 'hidden' }}>
+        <div style={{ padding: '14px 14px 24px', flex: 1, overflowY: 'auto', overflowX: 'hidden', WebkitOverflowScrolling: 'touch' }}>
           <div style={{ fontFamily: HF.mono, fontSize: 9, letterSpacing: 2, color: 'rgba(255,255,255,0.55)', textTransform: 'uppercase', fontWeight: 700, marginBottom: 6 }}>CAPTION</div>
           <div style={{ color: '#fff', fontSize: 15, lineHeight: 1.45 }}>
             Finally stuck the dyno. Two months of trying.<br/>

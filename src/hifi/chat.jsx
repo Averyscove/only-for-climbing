@@ -55,7 +55,7 @@ function HFChatListScreen() {
   ];
   return (
     <HFPhone>
-      <div style={{ position: 'absolute', top: 54, left: 0, right: 0, bottom: 80, overflow: 'hidden' }}>
+      <div style={{ position: 'absolute', top: 54, left: 0, right: 0, bottom: 80, overflowY: 'auto', overflowX: 'hidden', WebkitOverflowScrolling: 'touch' }}>
         <div style={{ padding: '8px 16px 14px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div style={{ fontFamily: HF.display, fontSize: 28, letterSpacing: -0.8, textTransform: 'uppercase' }}>CHAT</div>
           <HFIconBtn size={32} accent>{HFIcon.plus(15, '#fff')}</HFIconBtn>
@@ -122,7 +122,7 @@ function HFGroupChatScreen() {
           </div>
           <HFIconBtn size={32}>{HFIcon.more(14)}</HFIconBtn>
         </div>
-        <div style={{ flex: 1, overflow: 'hidden', padding: '14px 14px 8px' }}>
+        <div style={{ flex: 1, overflowY: 'auto', overflowX: 'hidden', WebkitOverflowScrolling: 'touch', padding: '14px 14px 8px' }}>
           <div style={{ textAlign: 'center', fontFamily: HF.mono, fontSize: 9, letterSpacing: 1.5, color: HF.ink3, textTransform: 'uppercase', marginBottom: 14 }}>━ TUE 4:12 PM ━</div>
 
           {/* Mara message */}

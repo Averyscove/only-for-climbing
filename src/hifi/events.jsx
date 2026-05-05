@@ -9,7 +9,7 @@ function HFEventsScreen() {
   ];
   return (
     <HFPhone>
-      <div style={{ position: 'absolute', top: 54, left: 0, right: 0, bottom: 80, overflow: 'hidden' }}>
+      <div style={{ position: 'absolute', top: 54, left: 0, right: 0, bottom: 80, overflowY: 'auto', overflowX: 'hidden', WebkitOverflowScrolling: 'touch' }}>
         <div style={{ padding: '8px 16px 8px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div style={{ fontFamily: HF.display, fontSize: 28, letterSpacing: -0.8, lineHeight: 1, textTransform: 'uppercase' }}>DISCOVER</div>
           <div onClick={() => window.UC && window.UC.navigate('plan')} style={{ cursor: 'pointer' }}>
@@ -67,7 +67,7 @@ function HFEventsScreen() {
 function HFPlanScreen() {
   return (
     <HFPhone>
-      <div style={{ position: 'absolute', top: 54, left: 0, right: 0, bottom: 0, overflow: 'hidden' }}>
+      <div style={{ position: 'absolute', top: 54, left: 0, right: 0, bottom: 0, overflowY: 'auto', overflowX: 'hidden', WebkitOverflowScrolling: 'touch' }}>
         <div style={{ padding: '8px 16px 14px', display: 'flex', alignItems: 'center', gap: 12 }}>
           <div onClick={() => window.UC && window.UC.navigate('events')} style={{ cursor: 'pointer' }}>
             <HFIconBtn size={32}>{HFIcon.back(14)}</HFIconBtn>
@@ -132,7 +132,7 @@ function HFPlanScreen() {
 function HFMapScreen() {
   return (
     <HFPhone>
-      <div style={{ position: 'absolute', top: 54, left: 0, right: 0, bottom: 80, overflow: 'hidden' }}>
+      <div style={{ position: 'absolute', top: 54, left: 0, right: 0, bottom: 80, overflowY: 'auto', overflowX: 'hidden', WebkitOverflowScrolling: 'touch' }}>
         <div style={{ padding: '12px 16px 8px', display: 'flex', alignItems: 'center', gap: 10 }}>
           <div onClick={() => window.UC && window.UC.navigate('events')} style={{ cursor: 'pointer' }}>
             <HFIconBtn size={32}>{HFIcon.back(14)}</HFIconBtn>

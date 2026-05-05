@@ -13,7 +13,8 @@
       "Bash(python3 _make_icons.py)",
       "Bash(rm -f _make_icons.html _make_icons.py)",
       "Bash(git -c user.email=tyripg@gmail.com -c user.name=Averyscove commit -m \"Make installable PWA: manifest, app icons, fullscreen layout\")",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(git -c user.email=tyripg@gmail.com -c user.name=Averyscove commit -m \"Make screens scrollable; move SCREENS button into the feed header\")"
     ]
   }
 }
