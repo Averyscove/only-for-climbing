@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Only for Climbing — Inline Wordmark</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#ece4d6; --paper2:#e2d9c8; --card:#f6efe1;
+    --ink:#13110e; --ink3:#5e564b;
+    --rule:#1a1714; --rule-soft:#bfb4a0;
+    --accent:#e85d2a;
+    --display:"Archivo Black","Inter",system-ui,sans-serif;
+    --sans:"Inter",-apple-system,system-ui,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:var(--sans);}
+  .wrap{max-width:1100px;margin:0 auto;padding:48px 32px 80px;}
+  header.head{display:flex;align-items:baseline;justify-content:space-between;padding-bottom:16px;border-bottom:2px solid var(--ink);margin-bottom:8px;}
+  header.head h1{font-family:var(--display);font-size:30px;letter-spacing:-1px;margin:0;text-transform:uppercase;}
+  header.head .meta{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;color:var(--ink3);text-transform:uppercase;font-weight:700;}
+  .lede{font-family:var(--mono);font-size:11px;letter-spacing:.5px;color:var(--ink3);max-width:780px;line-height:1.7;margin:14px 0 28px;}
+
+  .ribbon{display:flex;align-items:center;gap:14px;padding:12px 18px;background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:10px;letter-spacing:1.6px;text-transform:uppercase;font-weight:700;margin:0 0 18px;border:1.5px solid var(--rule);box-shadow:6px 6px 0 var(--rule);}
+  .ribbon .tag{background:var(--accent);color:#fff;padding:4px 8px;letter-spacing:1.6px;}
+  .ribbon .strike{text-decoration:line-through;opacity:.55;}
+
+  .section{margin-top:28px;border:1px solid var(--rule-soft);background:var(--card);box-shadow:6px 6px 0 var(--rule);overflow:hidden;}
+  .section-h{display:flex;align-items:baseline;gap:14px;padding:14px 22px;background:var(--paper2);border-bottom:1px solid var(--rule-soft);}
+  .section-h .num{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;color:var(--accent);font-weight:800;}
+  .section-h h2{font-family:var(--display);font-size:18px;margin:0;letter-spacing:-.3px;text-transform:uppercase;}
+  .section-h .desc{font-family:var(--mono);font-size:10px;letter-spacing:1.5px;color:var(--ink3);text-transform:uppercase;font-weight:700;margin-left:auto;}
+
+  /* Inline wordmark */
+  .wmi{display:inline-block;font-family:var(--display);text-transform:uppercase;letter-spacing:-.04em;line-height:1;white-space:nowrap;}
+  .wmi.s14{font-size:14px;}
+  .wmi.s16{font-size:16px;}
+  .wmi.s20{font-size:20px;}
+  .wmi.s28{font-size:28px;}
+  .wmi.s36{font-size:36px;}
+  .wmi.s56{font-size:56px;}
+
+  .stage{display:flex;align-items:center;justify-content:center;padding:56px 32px;position:relative;overflow:hidden;background:#fff;}
+  .stage.ink{background:var(--ink);}
+  .stage.paper{background:var(--paper);}
+
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--rule-soft);}
+  .grid3 .stage{padding:40px 20px;}
+  .grid3 .wmi.s56{font-size:36px;}
+  @media (min-width:900px){ .grid3 .wmi.s56{font-size:42px;} }
+
+  .scale-row{display:flex;align-items:flex-end;gap:36px;flex-wrap:wrap;padding:32px;background:#fff;}
+  .scale-cell{display:flex;flex-direction:column;align-items:flex-start;gap:8px;}
+  .scale-cell .lab{font-family:var(--mono);font-size:9px;font-weight:800;letter-spacing:1.6px;color:var(--ink3);text-transform:uppercase;}
+
+  /* Phone mock for feed header */
+  .phone{width:340px;margin:0 auto;background:var(--paper);border:1.5px solid var(--rule);box-shadow:6px 6px 0 var(--rule);}
+  .statusbar{height:18px;background:var(--paper);}
+  .feedhead{display:flex;align-items:center;justify-content:space-between;padding:14px 16px 12px;border-bottom:1px solid var(--rule-soft);}
+  .feedhead .right{display:flex;align-items:center;gap:10px;}
+  .icon-circle{width:30px;height:30px;border-radius:50%;border:1.5px solid var(--rule);display:flex;align-items:center;justify-content:center;}
+  .stories{display:flex;gap:10px;padding:14px 16px 16px;}
+  .stories .av{width:54px;height:54px;border-radius:50%;background:#cdc4b0;border:2px solid var(--accent);background-size:cover;background-position:center;}
+  .stories .av.s1{background-image:url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=120&q=80');}
+  .stories .av.s2{background-image:url('https://images.unsplash.com/photo-1546961342-1e7d2c2c3ed8?w=120&q=80');}
+  .stories .av.s3{background-image:url('https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=120&q=80');}
+  .stories .av.s4{background-image:url('https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=120&q=80');}
+  .stories .av.s5{background-image:url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=120&q=80');}
+  .post{padding:14px 16px;border-top:1px solid var(--rule-soft);}
+  .post .who{display:flex;align-items:center;gap:10px;font-family:var(--sans);font-size:12px;}
+  .post .who .av{width:28px;height:28px;border-radius:50%;background:#cdc4b0;background-size:cover;background-image:url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=120&q=80');}
+  .post .body{font-family:var(--sans);font-size:13px;color:var(--ink);margin-top:8px;line-height:1.5;}
+
+  /* Onboarding hero */
+  .hero{position:relative;background-image:url('https://images.unsplash.com/photo-1551632811-561732d1e306?w=1600&q=80');background-size:cover;background-position:center;padding:48px 26px 56px;color:#fff;width:340px;margin:0 auto;border:1.5px solid var(--rule);box-shadow:6px 6px 0 var(--rule);}
+  .hero::before{content:'';position:absolute;inset:0;background:rgba(13,12,10,.55);}
+  .hero > *{position:relative;z-index:2;}
+  .hero .label{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:1.6px;color:rgba(255,255,255,.6);text-transform:uppercase;display:block;margin-bottom:14px;}
+  .hero .headline{font-family:var(--display);font-size:36px;letter-spacing:-1.6px;line-height:.95;text-transform:uppercase;margin:18px 0 12px;}
+  .hero .headline em{color:var(--accent);font-style:normal;}
+  .hero .body{font-family:var(--sans);font-size:13px;line-height:1.5;max-width:380px;color:rgba(255,255,255,.85);}
+  .hero .cta{display:inline-flex;align-items:center;justify-content:center;margin-top:22px;padding:14px 18px;background:var(--accent);color:#fff;font-family:var(--display);font-size:14px;text-transform:uppercase;letter-spacing:.5px;border:1.5px solid var(--rule);box-shadow:4px 4px 0 var(--rule);}
+
+  /* Compare side-by-side */
+  .compare{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule-soft);}
+  .compareCell{background:var(--paper);padding:24px;display:flex;flex-direction:column;align-items:center;gap:14px;}
+  .compareCell .ftag{font-family:var(--mono);font-size:9px;font-weight:800;letter-spacing:1.5px;color:var(--ink3);text-transform:uppercase;}
+
+  .file-list{font-family:var(--mono);font-size:11px;line-height:1.85;color:var(--ink);background:var(--paper);padding:18px 22px;border-top:1px solid var(--rule-soft);}
+  .file-list .path{color:var(--ink3);}
+  .file-list b{color:var(--accent);font-weight:800;}
+  .file-list .new{color:#1f7a3f;font-weight:800;}
+
+  footer{margin-top:48px;padding-top:18px;border-top:1px solid var(--rule-soft);display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;letter-spacing:1.5px;color:var(--ink3);text-transform:uppercase;font-weight:700;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="head">
+    <h1>Only for Climbing<span style="color:var(--accent)">.</span> &nbsp;Inline Wordmark</h1>
+    <div class="meta">VARIANT FOR FEED + ONBOARDING · APR 2026</div>
+  </header>
+  <p class="lede">A single-line variant of the Only for Climbing wordmark, to be used <b style="color:#13110e">only</b> in the iOS feed top header (16 px) and the onboarding hero (28–36 px). Anywhere else, the two-line stack remains the lockup. The inline form fits inside narrow headers without crowding adjacent UI like the search circle.</p>
+
+  <div class="ribbon">
+    <span class="tag">RENAME</span>
+    <span class="strike">All for Climbing</span>
+    <span>→</span>
+    <span style="color:#fff">Only for Climbing</span>
+    <span style="margin-left:auto;color:rgba(236,228,214,.6)">Inline viewBox grew 880→960 to fit the extra letter.</span>
+  </div>
+
+  <!-- 01 — Default forms -->
+  <section class="section">
+    <div class="section-h"><span class="num">01</span><h2>The Inline Mark</h2><span class="desc">INK · PAPER · WHITE</span></div>
+    <div class="grid3">
+      <div class="stage"><span class="wmi s56" style="color:#13110e">ONLY FOR CLIMBING<span style="color:#e85d2a">.</span></span></div>
+      <div class="stage ink"><span class="wmi s56" style="color:#ece4d6">ONLY FOR CLIMBING<span style="color:#e85d2a">.</span></span></div>
+      <div class="stage paper"><span class="wmi s56" style="color:#13110e">ONLY FOR CLIMBING<span style="color:#e85d2a">.</span></span></div>
+    </div>
+  </section>
+
+  <!-- 02 — Side-by-side -->
+  <section class="section">
+    <div class="section-h"><span class="num">02</span><h2>Why a Second Variant</h2><span class="desc">STACK vs INLINE</span></div>
+    <div class="compare">
+      <div class="compareCell">
+        <div style="width:100%;background:var(--paper);padding:0;">
+          <div class="feedhead" style="border:1.5px solid var(--rule);">
+            <div style="display:inline-flex;flex-direction:column;line-height:1;font-family:var(--display);text-transform:uppercase;letter-spacing:-.025em;font-size:11px;color:#13110e">
+              <span style="line-height:.96">ONLY FOR</span>
+              <span style="line-height:.96">CLIMBING<span style="color:#e85d2a">.</span></span>
+            </div>
+            <div class="right">
+              <div class="icon-circle"><svg width="14" height="14" viewBox="0 0 18 18" fill="none" stroke="#13110e" stroke-width="1.6" stroke-linecap="round"><circle cx="8" cy="8" r="5"/><path d="M12 12l3.5 3.5"/></svg></div>
+            </div>
+          </div>
+        </div>
+        <span class="ftag">✕ STACK · CRAMPS THE HEADER</span>
+      </div>
+      <div class="compareCell">
+        <div style="width:100%;background:var(--paper);padding:0;">
+          <div class="feedhead" style="border:1.5px solid var(--rule);">
+            <span class="wmi s16" style="color:#13110e">ONLY FOR CLIMBING<span style="color:#e85d2a">.</span></span>
+            <div class="right">
+              <div class="icon-circle"><svg width="14" height="14" viewBox="0 0 18 18" fill="none" stroke="#13110e" stroke-width="1.6" stroke-linecap="round"><circle cx="8" cy="8" r="5"/><path d="M12 12l3.5 3.5"/></svg></div>
+            </div>
+          </div>
+        </div>
+        <span class="ftag" style="color:#1f7a3f">✓ INLINE · BREATHES NEXT TO ICONS</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 — Scale ladder -->
+  <section class="section">
+    <div class="section-h"><span class="num">03</span><h2>Scale Ladder</h2><span class="desc">14 / 16 / 20 / 28 / 36 / 56 PX</span></div>
+    <div class="scale-row">
+      <div class="scale-cell"><span class="lab">14 PX</span><span class="wmi s14" style="color:#13110e">ONLY FOR CLIMBING<span style="color:#e85d2a">.</span></span></div>
+      <div class="scale-cell"><span class="lab">16 PX · FEED HEAD</span><span class="wmi s16" style="color:#13110e">ONLY FOR CLIMBING<span style="color:#e85d2a">.</span></span></div>
+      <div class="scale-cell"><span class="lab">20 PX</span><span class="wmi s20" style="color:#13110e">ONLY FOR CLIMBING<span style="color:#e85d2a">.</span></span></div>
+      <div class="scale-cell"><span class="lab">28 PX · ONBOARDING</span><span class="wmi s28" style="color:#13110e">ONLY FOR CLIMBING<span style="color:#e85d2a">.</span></span></div>
+      <div class="scale-cell"><span class="lab">36 PX · HERO</span><span class="wmi s36" style="color:#13110e">ONLY FOR CLIMBING<span style="color:#e85d2a">.</span></span></div>
+    </div>
+  </section>
+
+  <!-- 04 — In context: feed -->
+  <section class="section">
+    <div class="section-h"><span class="num">04</span><h2>Home / Feed Header</h2><span class="desc">16 PX · DEFAULT INK</span></div>
+    <div style="padding:32px;background:#fff;display:flex;justify-content:center;">
+      <div class="phone">
+        <div class="statusbar"></div>
+        <div class="feedhead">
+          <span class="wmi s16" style="color:#13110e">ONLY FOR CLIMBING<span style="color:#e85d2a">.</span></span>
+          <div class="right">
+            <div class="icon-circle">
+              <svg width="14" height="14" viewBox="0 0 18 18" fill="none" stroke="#13110e" stroke-width="1.6" stroke-linecap="round"><circle cx="8" cy="8" r="5"/><path d="M12 12l3.5 3.5"/></svg>
+            </div>
+            <div style="position:relative">
+              <svg width="20" height="20" viewBox="0 0 18 18" fill="none" stroke="#13110e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13V8a5 5 0 0110 0v5l1.5 2H2.5L4 13z"/><path d="M7 16a2 2 0 004 0"/></svg>
+              <span style="position:absolute;top:0;right:0;width:7px;height:7px;border-radius:50%;background:#e85d2a"></span>
+            </div>
+          </div>
+        </div>
+        <div class="stories">
+          <div class="av s1"></div><div class="av s2"></div><div class="av s3"></div><div class="av s4"></div><div class="av s5"></div>
+        </div>
+        <div class="post">
+          <div class="who"><div class="av"></div><b>nora.k</b> · sent <b style="color:var(--accent)">V7</b> at oak</div>
+          <div class="body">"Blood Orange". 14 attempts, 3 sesh. Heel hook on the dyno was the unlock.</div>
+        </div>
+        <div class="post">
+          <div class="who"><div class="av" style="background-image:url('https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=120&q=80')"></div><b>jp.brown</b> · projecting <b>V9</b></div>
+          <div class="body">Slab feet are eating my soul. anyone tried scrubbing the right foot smear?</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 — In context: onboarding -->
+  <section class="section">
+    <div class="section-h"><span class="num">05</span><h2>Onboarding Hero</h2><span class="desc">28–36 PX · WHITE ON PHOTO</span></div>
+    <div style="padding:32px;background:#fff;display:flex;justify-content:center;">
+      <div class="hero">
+        <span class="label">Welcome</span>
+        <span class="wmi s28" style="color:#fff;display:block">ONLY FOR CLIMBING<span style="color:#e85d2a">.</span></span>
+        <div class="headline">Find your <em>crew.</em><br/>Send harder.</div>
+        <div class="body">A social network for boulderers. Log sends, share beta, find your gym crew.</div>
+        <div class="cta">Get Started →</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 — Rules -->
+  <section class="section">
+    <div class="section-h"><span class="num">06</span><h2>Rules</h2><span class="desc">WHEN TO USE INLINE</span></div>
+    <div style="padding:24px 26px;background:#fff;font-family:var(--sans);font-size:13px;line-height:1.7;color:var(--ink);">
+      <p style="margin:0 0 10px"><b style="font-family:var(--display);text-transform:uppercase;letter-spacing:-.3px">USE INLINE FOR</b></p>
+      <ul style="margin:0 0 18px 18px;padding:0;color:var(--ink);">
+        <li>Feed / home top header (iOS, Android) — <b>16 px</b></li>
+        <li>Profile / settings nav title — <b>16 px</b></li>
+        <li>Onboarding hero typography — <b>28–36 px</b></li>
+        <li>Email pre-header line — <b>14 px</b></li>
+      </ul>
+      <p style="margin:0 0 10px"><b style="font-family:var(--display);text-transform:uppercase;letter-spacing:-.3px">USE STACKED (DEFAULT) FOR</b></p>
+      <ul style="margin:0 0 18px 18px;padding:0;color:var(--ink);">
+        <li>Share cards, posters, marketing</li>
+        <li>App Store screenshots, splash</li>
+        <li>Footer signatures on letterhead, email signatures</li>
+        <li>Anywhere else the brand needs presence and weight</li>
+      </ul>
+      <p style="margin:0;color:var(--ink3);font-size:12px;">Inline is a <b>tactical</b> variant — it earns its place by deferring to the chrome around it. The stacked masthead remains the brand's primary form.</p>
+    </div>
+  </section>
+
+  <!-- 07 — Files -->
+  <section class="section">
+    <div class="section-h"><span class="num">07</span><h2>What's in the Folder</h2><span class="desc">9 SVG · 2 JSX</span></div>
+    <div class="file-list">
+<span class="path">wordmark_handoff_OFC/</span><br/>
+├── README.md<br/>
+├── preview.html                 <span class="path">— stacked masthead</span><br/>
+├── <b class="new">preview-inline.html</b>          <span class="path">— this page</span><br/>
+├── svg/<br/>
+│   ├── wordmark-stack-*.svg     <span class="path">— stacked masthead (5 files)</span><br/>
+│   ├── <b class="new">wordmark-inline-ink.svg</b>      <span class="path">— DEFAULT for feed header</span><br/>
+│   ├── <b class="new">wordmark-inline-paper.svg</b>    <span class="path">— for dark headers</span><br/>
+│   ├── <b class="new">wordmark-inline-white.svg</b>    <span class="path">— for onboarding hero</span><br/>
+│   └── <b class="new">wordmark-inline-mono.svg</b>     <span class="path">— single color</span><br/>
+└── code/<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;├── Wordmark.jsx                <span class="path">— the stacked masthead</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;└── <b class="new">WordmarkInline.jsx</b>          <span class="path">— single-line variant</span>
+    </div>
+  </section>
+
+  <footer>
+    <span>ONLY FOR CLIMBING · WORDMARK · INLINE</span>
+    <span>FEED + ONBOARDING ONLY · APR 2026</span>
+  </footer>
+</div>
+</body>
+</html>

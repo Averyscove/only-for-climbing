@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>All for Climbing — Icon Handoff</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#ece4d6; --paper2:#e2d9c8; --card:#f6efe1;
+    --ink:#13110e; --ink3:#5e564b;
+    --rule:#1a1714; --rule-soft:#bfb4a0;
+    --accent:#e85d2a;
+    --display:"Archivo Black","Inter",system-ui,sans-serif;
+    --sans:"Inter",-apple-system,system-ui,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:var(--sans);}
+  body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.08 0 0 0 0 0.06 0 0 0 0 0.04 0 0 0 0 0.5 0'/%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.16'/%3E%3C/svg%3E");
+    background-size:220px 220px;opacity:.55;mix-blend-mode:multiply;}
+  .wrap{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:48px 32px 80px;}
+  header.head{display:flex;align-items:baseline;justify-content:space-between;padding-bottom:16px;border-bottom:2px solid var(--ink);margin-bottom:8px;}
+  header.head h1{font-family:var(--display);font-size:32px;letter-spacing:-1px;margin:0;text-transform:uppercase;}
+  header.head .meta{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;color:var(--ink3);text-transform:uppercase;font-weight:700;}
+  .lede{font-family:var(--mono);font-size:11px;letter-spacing:.5px;color:var(--ink3);max-width:780px;line-height:1.7;margin:14px 0 28px;}
+
+  .section{margin-top:28px;border:1px solid var(--rule-soft);background:var(--card);box-shadow:6px 6px 0 var(--rule);overflow:hidden;}
+  .section-h{display:flex;align-items:baseline;gap:14px;padding:14px 22px;background:var(--paper2);border-bottom:1px solid var(--rule-soft);}
+  .section-h .num{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;color:var(--accent);font-weight:800;}
+  .section-h h2{font-family:var(--display);font-size:18px;margin:0;letter-spacing:-.3px;text-transform:uppercase;}
+  .section-h .desc{font-family:var(--mono);font-size:10px;letter-spacing:1.5px;color:var(--ink3);text-transform:uppercase;font-weight:700;margin-left:auto;}
+
+  .stage{display:flex;align-items:center;justify-content:center;padding:48px 32px;background:#fff;}
+  .stage.dark{background:var(--ink);}
+  .stage.paper{background:var(--paper);}
+
+  .heroIcons{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule-soft);}
+  .heroIcons .cell{background:#fff;padding:32px;display:flex;flex-direction:column;align-items:center;gap:14px;}
+  .heroIcons .cell.dark{background:var(--ink);color:var(--paper);}
+  .heroIcons .cell.paper{background:var(--paper);}
+  .heroIcons img{width:240px;height:240px;display:block;}
+  .heroIcons .lab{font-family:var(--mono);font-size:10px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:var(--ink3);}
+  .heroIcons .cell.dark .lab{color:rgba(255,255,255,.55);}
+
+  .scaleRow{display:flex;align-items:flex-end;gap:32px;flex-wrap:wrap;padding:32px;background:#fff;}
+  .scaleCell{display:flex;flex-direction:column;align-items:center;gap:8px;}
+  .scaleCell .lab{font-family:var(--mono);font-size:9px;font-weight:800;letter-spacing:1.6px;color:var(--ink3);text-transform:uppercase;}
+
+  .gridList{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule-soft);}
+  .gridList .cell{background:#fff;padding:22px 16px;display:flex;flex-direction:column;align-items:center;gap:10px;}
+  .gridList img{width:96px;height:96px;display:block;}
+  .gridList .lab{font-family:var(--mono);font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink);text-align:center;}
+  .gridList .sub{font-family:var(--mono);font-size:9px;color:var(--ink3);font-weight:700;letter-spacing:1px;text-transform:uppercase;}
+
+  /* Mock device homescreens */
+  .devices{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule-soft);}
+  .devicePanel{background:#fff;padding:24px;display:flex;flex-direction:column;align-items:center;gap:14px;}
+  .ios-grid{width:100%;max-width:340px;background:linear-gradient(160deg,#5b6f8c,#243042);border-radius:36px;padding:28px 22px 22px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px 14px;}
+  .ios-grid .app{display:flex;flex-direction:column;align-items:center;gap:6px;}
+  .ios-grid .app .ic{width:54px;height:54px;border-radius:13px;background:#bbb;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+  .ios-grid .app .ic img{width:100%;height:100%;}
+  .ios-grid .app .nm{color:#fff;font-size:10px;font-family:var(--sans);font-weight:500;}
+  .ios-grid .app.afc .ic{background:transparent;}
+
+  .android-grid{width:100%;max-width:340px;background:linear-gradient(180deg,#1d2730,#0d1217);border-radius:24px;padding:28px 22px 28px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px 14px;}
+  .android-grid .app{display:flex;flex-direction:column;align-items:center;gap:6px;}
+  .android-grid .app .ic{width:54px;height:54px;border-radius:50%;overflow:hidden;background:#444;display:flex;align-items:center;justify-content:center;}
+  .android-grid .app .ic img{width:100%;height:100%;}
+  .android-grid .app .nm{color:#fff;font-size:10px;font-family:var(--sans);font-weight:500;}
+
+  /* Browser tab mock */
+  .browserMock{background:#fff;border:1px solid var(--rule-soft);border-radius:8px;padding:8px 10px;display:flex;align-items:center;gap:10px;max-width:520px;margin:0 auto;}
+  .browserMock .tab{display:flex;align-items:center;gap:8px;background:var(--paper);padding:6px 12px 6px 8px;border-radius:6px;}
+  .browserMock .tab img{width:16px;height:16px;}
+  .browserMock .tab .t{font-family:var(--sans);font-size:12px;color:var(--ink);}
+  .browserMock .url{flex:1;font-family:var(--mono);font-size:11px;color:var(--ink3);}
+
+  .file-list{font-family:var(--mono);font-size:11px;line-height:1.85;color:var(--ink);background:var(--paper);padding:18px 22px;border-top:1px solid var(--rule-soft);}
+  .file-list .path{color:var(--ink3);}
+  .file-list b{color:var(--accent);font-weight:800;}
+
+  footer{margin-top:48px;padding-top:18px;border-top:1px solid var(--rule-soft);display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;letter-spacing:1.5px;color:var(--ink3);text-transform:uppercase;font-weight:700;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="head">
+    <h1>All for Climbing<span style="color:var(--accent)">.</span> &nbsp;Icon</h1>
+    <div class="meta">APP ICON HANDOFF · APR 2026</div>
+  </header>
+  <p class="lede">The official app icon for All for Climbing. White mountain + lightning-bolt mark on a #e85d2a tile. Same mark across iOS, Android, web, social, and desktop — only the tile shape changes.</p>
+
+  <!-- 01 -->
+  <section class="section">
+    <div class="section-h"><span class="num">01</span><h2>The Icon — Three Shapes</h2><span class="desc">SQUIRCLE · CIRCLE · SQUARE</span></div>
+    <div class="heroIcons">
+      <div class="cell paper"><img src="svg/icon-squircle.svg" alt="" /><span class="lab">SQUIRCLE · iOS, Android adaptive, Discord</span></div>
+      <div class="cell"><img src="svg/icon-circle.svg" alt="" /><span class="lab">CIRCLE · FB, X, LinkedIn, YouTube</span></div>
+      <div class="cell dark"><img src="svg/icon-square.svg" alt="" /><span class="lab">SQUARE · favicons, Windows, App Store</span></div>
+    </div>
+  </section>
+
+  <!-- 02 — Scale ladder -->
+  <section class="section">
+    <div class="section-h"><span class="num">02</span><h2>Scale Ladder</h2><span class="desc">16 → 1024 PX</span></div>
+    <div class="scaleRow">
+      <div class="scaleCell"><img src="web/favicon-16.png" width="16" height="16" alt="" /><span class="lab">16 · TAB</span></div>
+      <div class="scaleCell"><img src="web/favicon-32.png" width="32" height="32" alt="" /><span class="lab">32 · TAB @2x</span></div>
+      <div class="scaleCell"><img src="ios/AppIcon-60.png" width="60" height="60" alt="" /><span class="lab">60 · iOS</span></div>
+      <div class="scaleCell"><img src="ios/AppIcon-120.png" width="96" height="96" alt="" /><span class="lab">96 · NOTIF</span></div>
+      <div class="scaleCell"><img src="ios/AppIcon-180.png" width="128" height="128" alt="" /><span class="lab">128 · MENU</span></div>
+      <div class="scaleCell"><img src="ios/AppIcon-180.png" width="180" height="180" alt="" /><span class="lab">180 · iOS @3x</span></div>
+      <div class="scaleCell"><img src="ios/AppIcon-1024.png" width="240" height="240" alt="" /><span class="lab">1024 · APP STORE</span></div>
+    </div>
+  </section>
+
+  <!-- 03 — In context: home screens -->
+  <section class="section">
+    <div class="section-h"><span class="num">03</span><h2>On Device</h2><span class="desc">iOS · ANDROID</span></div>
+    <div class="devices">
+      <div class="devicePanel">
+        <div class="ios-grid">
+          <div class="app"><div class="ic" style="background:#34c759"></div><div class="nm">Phone</div></div>
+          <div class="app"><div class="ic" style="background:#007aff"></div><div class="nm">Safari</div></div>
+          <div class="app"><div class="ic" style="background:#fff"></div><div class="nm">Notes</div></div>
+          <div class="app"><div class="ic" style="background:#ff3b30"></div><div class="nm">Music</div></div>
+          <div class="app"><div class="ic" style="background:#1da1f2"></div><div class="nm">X</div></div>
+          <div class="app afc"><div class="ic"><img src="ios/AppIcon-180.png" alt="" /></div><div class="nm">All for Climbing</div></div>
+          <div class="app"><div class="ic" style="background:#ffcc00"></div><div class="nm">Mail</div></div>
+          <div class="app"><div class="ic" style="background:#5856d6"></div><div class="nm">Camera</div></div>
+        </div>
+        <span class="lab" style="font-family:var(--mono);font-size:10px;font-weight:800;letter-spacing:1.5px;color:var(--ink3);text-transform:uppercase">iOS HOME SCREEN · 180 PX</span>
+      </div>
+      <div class="devicePanel">
+        <div class="android-grid">
+          <div class="app"><div class="ic" style="background:#3ddc84"></div><div class="nm">Play</div></div>
+          <div class="app"><div class="ic" style="background:#0f9d58"></div><div class="nm">WhatsApp</div></div>
+          <div class="app"><div class="ic" style="background:#fff"></div><div class="nm">Maps</div></div>
+          <div class="app"><div class="ic" style="background:#ea4335"></div><div class="nm">Gmail</div></div>
+          <div class="app"><div class="ic" style="background:#1877f2"></div><div class="nm">FB</div></div>
+          <div class="app"><div class="ic"><img src="android/mipmap-xxxhdpi/ic_launcher.png" alt="" /></div><div class="nm">All for Climbing</div></div>
+          <div class="app"><div class="ic" style="background:#ff0000"></div><div class="nm">YouTube</div></div>
+          <div class="app"><div class="ic" style="background:#000"></div><div class="nm">TikTok</div></div>
+        </div>
+        <span class="lab" style="font-family:var(--mono);font-size:10px;font-weight:800;letter-spacing:1.5px;color:var(--ink3);text-transform:uppercase">ANDROID · ADAPTIVE, CIRCLE-MASKED</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 — Social profiles -->
+  <section class="section">
+    <div class="section-h"><span class="num">04</span><h2>Social Profiles</h2><span class="desc">EVERY PLATFORM</span></div>
+    <div class="gridList">
+      <div class="cell"><img src="social/instagram-profile-1080.png" alt="" /><span class="lab">Instagram</span><span class="sub">1080 · squircle</span></div>
+      <div class="cell"><img src="social/facebook-profile-1024.png" alt="" /><span class="lab">Facebook</span><span class="sub">1024 · circle</span></div>
+      <div class="cell"><img src="social/twitter-x-profile-400.png" alt="" /><span class="lab">X / Twitter</span><span class="sub">400 · circle</span></div>
+      <div class="cell"><img src="social/linkedin-profile-400.png" alt="" /><span class="lab">LinkedIn</span><span class="sub">400 · circle</span></div>
+      <div class="cell"><img src="social/youtube-profile-800.png" alt="" /><span class="lab">YouTube</span><span class="sub">800 · circle</span></div>
+      <div class="cell"><img src="social/tiktok-profile-256.png" alt="" /><span class="lab">TikTok</span><span class="sub">256 · circle</span></div>
+      <div class="cell"><img src="social/discord-server-1024.png" alt="" /><span class="lab">Discord</span><span class="sub">1024 · squircle</span></div>
+      <div class="cell"><img src="social/github-org-256.png" alt="" /><span class="lab">GitHub</span><span class="sub">256 · circle</span></div>
+    </div>
+  </section>
+
+  <!-- 05 — Browser tab -->
+  <section class="section">
+    <div class="section-h"><span class="num">05</span><h2>Browser Tab</h2><span class="desc">FAVICON</span></div>
+    <div class="stage paper">
+      <div class="browserMock">
+        <div class="tab"><img src="web/favicon-32.png" alt="" /><span class="t">All for Climbing — Send harder</span></div>
+        <span class="url">allforclimbing.com</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 — Files -->
+  <section class="section">
+    <div class="section-h"><span class="num">06</span><h2>What's in the Folder</h2><span class="desc">SVG · PNG · MULTI-PLATFORM</span></div>
+    <div class="file-list">
+<span class="path">icon_handoff_AFC/</span><br/>
+├── <b>README.md</b>                          <span class="path">— spec, install, don'ts</span><br/>
+├── <b>preview.html</b>                       <span class="path">— this page</span><br/>
+├── svg/                                <span class="path">— 6 master vectors</span><br/>
+├── ios/                                <span class="path">— 13 PNGs (1024 → 20)</span><br/>
+├── android/                            <span class="path">— 5 densities, adaptive + legacy + Play 512</span><br/>
+├── web/                                <span class="path">— favicons, apple-touch, chrome 192/512, maskable</span><br/>
+├── social/                             <span class="path">— IG, FB, X, LI, YT, TT, Discord, GitHub</span><br/>
+└── desktop/                            <span class="path">— macOS 1024, Windows 256</span>
+    </div>
+  </section>
+
+  <footer>
+    <span>ALL FOR CLIMBING · ICON HANDOFF</span>
+    <span>v1 · APR 2026</span>
+  </footer>
+</div>
+</body>
+</html>

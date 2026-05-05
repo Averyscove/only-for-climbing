@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>All for Climbing — Wordmark Preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#ece4d6; --paper2:#e2d9c8; --card:#f6efe1;
+    --ink:#13110e; --ink3:#5e564b;
+    --rule:#1a1714; --rule-soft:#bfb4a0;
+    --accent:#e85d2a;
+    --display:"Archivo Black","Inter",system-ui,sans-serif;
+    --sans:"Inter",-apple-system,system-ui,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:var(--sans);}
+  body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.08 0 0 0 0 0.06 0 0 0 0 0.04 0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.16'/%3E%3C/svg%3E");
+    background-size:220px 220px;opacity:.55;mix-blend-mode:multiply;}
+  .wrap{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:48px 32px 80px;}
+  header.head{display:flex;align-items:baseline;justify-content:space-between;padding-bottom:16px;border-bottom:2px solid var(--ink);margin-bottom:8px;}
+  header.head h1{font-family:var(--display);font-size:32px;letter-spacing:-1px;margin:0;text-transform:uppercase;}
+  header.head .meta{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;color:var(--ink3);text-transform:uppercase;font-weight:700;}
+  .lede{font-family:var(--mono);font-size:11px;letter-spacing:.5px;color:var(--ink3);max-width:780px;line-height:1.7;margin:14px 0 28px;}
+
+  .section{margin-top:28px;border:1px solid var(--rule-soft);background:var(--card);box-shadow:6px 6px 0 var(--rule);overflow:hidden;}
+  .section-h{display:flex;align-items:baseline;gap:14px;padding:14px 22px;background:var(--paper2);border-bottom:1px solid var(--rule-soft);}
+  .section-h .num{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;color:var(--accent);font-weight:800;}
+  .section-h h2{font-family:var(--display);font-size:18px;margin:0;letter-spacing:-.3px;text-transform:uppercase;}
+  .section-h .desc{font-family:var(--mono);font-size:10px;letter-spacing:1.5px;color:var(--ink3);text-transform:uppercase;font-weight:700;margin-left:auto;}
+
+  .stage{display:flex;align-items:center;justify-content:center;padding:56px 32px;position:relative;overflow:hidden;}
+  .stage.paper{background:#fff;border-bottom:1px solid var(--rule-soft);}
+  .stage.ink{background:var(--ink);}
+  .stage.photo{background-image:url('https://images.unsplash.com/photo-1551632811-561732d1e306?w=1600&q=80');background-size:cover;background-position:center;position:relative;}
+  .stage.photo::after{content:'';position:absolute;inset:0;background:rgba(13,12,10,.55);}
+  .stage.photo > *{position:relative;z-index:2;}
+
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;}
+
+  /* Wordmark stack rendering */
+  .wm{display:inline-flex;flex-direction:column;font-family:var(--display);text-transform:uppercase;letter-spacing:-.025em;line-height:1;}
+  .wm > span{line-height:.96;}
+  .wm.size-22  {font-size:11px;}
+  .wm.size-28  {font-size:14px;}
+  .wm.size-44  {font-size:21px;}
+  .wm.size-72  {font-size:34px;}
+  .wm.size-120 {font-size:58px;}
+
+  .scale-row{display:flex;align-items:flex-end;gap:42px;flex-wrap:wrap;padding:32px;background:#fff;}
+  .scale-cell{display:flex;flex-direction:column;align-items:flex-start;gap:8px;}
+  .scale-cell .lab{font-family:var(--mono);font-size:9px;font-weight:800;letter-spacing:1.6px;color:var(--ink3);text-transform:uppercase;}
+
+  /* Faux header */
+  .fauxhead{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;background:var(--paper);border-bottom:1px solid var(--rule-soft);}
+  .fauxhead .right{display:flex;align-items:center;gap:10px;}
+  .icon-circle{width:30px;height:30px;border-radius:50%;border:1.5px solid var(--rule);display:flex;align-items:center;justify-content:center;}
+
+  /* Faux share card */
+  .fauxshare{padding:24px;background:var(--paper);}
+  .fauxshare .card{background:var(--card);border:1.5px solid var(--rule);box-shadow:4px 4px 0 var(--rule);padding:18px 18px 22px;}
+  .fauxshare .top{display:flex;align-items:center;justify-content:space-between;padding-bottom:14px;border-bottom:1px solid var(--rule-soft);margin-bottom:14px;}
+  .fauxshare .send-no{font-family:var(--mono);font-size:10px;font-weight:800;letter-spacing:2px;color:var(--ink3);text-transform:uppercase;}
+  .fauxshare .row{display:flex;align-items:baseline;gap:14px;}
+  .fauxshare .v{font-family:var(--display);font-size:64px;color:var(--accent);letter-spacing:-3px;line-height:.9;}
+  .fauxshare .name{font-family:var(--display);font-size:22px;letter-spacing:-.5px;line-height:1.05;}
+  .fauxshare .meta{font-family:var(--mono);font-size:10px;letter-spacing:1.5px;color:var(--ink3);margin-top:4px;text-transform:uppercase;font-weight:700;}
+
+  /* Onboarding hero */
+  .hero{position:relative;background-image:url('https://images.unsplash.com/photo-1551632811-561732d1e306?w=1600&q=80');background-size:cover;background-position:center;padding:64px 32px 72px;color:#fff;}
+  .hero::before{content:'';position:absolute;inset:0;background:rgba(13,12,10,.55);}
+  .hero > *{position:relative;z-index:2;}
+  .hero .label{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:1.6px;color:rgba(255,255,255,.6);text-transform:uppercase;margin-bottom:18px;display:block;}
+  .hero .headline{font-family:var(--display);font-size:48px;letter-spacing:-2px;line-height:.92;text-transform:uppercase;margin:24px 0 14px;}
+  .hero .headline em{color:var(--accent);font-style:normal;}
+  .hero .body{font-family:var(--sans);font-size:14px;line-height:1.5;max-width:420px;color:rgba(255,255,255,.8);}
+
+  /* Don'ts grid */
+  .donts{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule-soft);}
+  .donts .cell{background:#fff;padding:24px;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;}
+  .donts .cell .lab{font-family:var(--mono);font-size:10px;font-weight:800;letter-spacing:1.6px;color:#a23222;text-transform:uppercase;}
+  .donts .why{font-family:var(--sans);font-size:12px;color:var(--ink3);}
+
+  .file-list{font-family:var(--mono);font-size:11px;line-height:1.9;color:var(--ink);background:var(--paper);padding:18px 22px;border-top:1px solid var(--rule-soft);}
+  .file-list .path{color:var(--ink3);}
+  .file-list b{color:var(--accent);font-weight:800;}
+
+  footer{margin-top:48px;padding-top:18px;border-top:1px solid var(--rule-soft);display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;letter-spacing:1.5px;color:var(--ink3);text-transform:uppercase;font-weight:700;}
+
+  @page { size: A4 portrait; margin: 12mm; }
+  @media print {
+    html, body { background: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; color-adjust: exact; }
+    body::before { display: none !important; }
+    .wrap { max-width: none; margin: 0; padding: 0; }
+    header.head { break-after: avoid; }
+    .section { break-inside: avoid; box-shadow: none; border: 1px solid #1a1714; margin-top: 14px; }
+    .section:first-of-type { margin-top: 18px; }
+    .stage, .scale-row, .fauxhead, .fauxshare, .hero, .donts, .file-list { break-inside: avoid; }
+    .stage.photo, .hero { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .stage { padding: 36px 24px; }
+    .scale-row { padding: 24px; gap: 28px; }
+    .hero { padding: 40px 28px 48px; }
+    footer { break-before: avoid; }
+    a { color: inherit; text-decoration: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="head">
+    <h1>All for Climbing<span style="color:var(--accent)">.</span> &nbsp;Wordmark</h1>
+    <div class="meta">TWO-LINE STACK · DIRECTION 04 · APR 2026</div>
+  </header>
+  <p class="lede">The official wordmark for All for Climbing. Two-line stacked masthead in Archivo Black, all caps, with an orange period accent. No mountain mark — the type does the work.</p>
+
+  <!-- 01 — Default -->
+  <section class="section">
+    <div class="section-h"><span class="num">01</span><h2>The Mark — Default Forms</h2><span class="desc">INK · PAPER · WHITE</span></div>
+    <div class="grid3">
+      <div class="stage paper">
+        <div class="wm size-120" style="color:#13110e">
+          <span>ALL FOR</span>
+          <span>CLIMBING<span style="color:#e85d2a">.</span></span>
+        </div>
+      </div>
+      <div class="stage ink">
+        <div class="wm size-120" style="color:#ece4d6">
+          <span>ALL FOR</span>
+          <span>CLIMBING<span style="color:#e85d2a">.</span></span>
+        </div>
+      </div>
+      <div class="stage photo">
+        <div class="wm size-120" style="color:#fff">
+          <span>ALL FOR</span>
+          <span>CLIMBING<span style="color:#e85d2a">.</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 — Scale ladder -->
+  <section class="section">
+    <div class="section-h"><span class="num">02</span><h2>Scale Ladder</h2><span class="desc">22 / 28 / 44 / 72 / 120 PX</span></div>
+    <div class="scale-row">
+      <div class="scale-cell"><span class="lab">22 PX · HEADER</span><div class="wm size-22" style="color:#13110e"><span>ALL FOR</span><span>CLIMBING<span style="color:#e85d2a">.</span></span></div></div>
+      <div class="scale-cell"><span class="lab">28 PX · EMAIL</span><div class="wm size-28" style="color:#13110e"><span>ALL FOR</span><span>CLIMBING<span style="color:#e85d2a">.</span></span></div></div>
+      <div class="scale-cell"><span class="lab">44 PX · SHARE CARD</span><div class="wm size-44" style="color:#13110e"><span>ALL FOR</span><span>CLIMBING<span style="color:#e85d2a">.</span></span></div></div>
+      <div class="scale-cell"><span class="lab">72 PX · POSTER</span><div class="wm size-72" style="color:#13110e"><span>ALL FOR</span><span>CLIMBING<span style="color:#e85d2a">.</span></span></div></div>
+      <div class="scale-cell"><span class="lab">120 PX · MARQUEE</span><div class="wm size-120" style="color:#13110e"><span>ALL FOR</span><span>CLIMBING<span style="color:#e85d2a">.</span></span></div></div>
+    </div>
+  </section>
+
+  <!-- 03 — In-app placements -->
+  <section class="section">
+    <div class="section-h"><span class="num">03</span><h2>In-App Placements</h2><span class="desc">FEED · SHARE · ONBOARDING</span></div>
+
+    <div class="fauxhead">
+      <div class="wm size-22" style="color:#13110e"><span>ALL FOR</span><span>CLIMBING<span style="color:#e85d2a">.</span></span></div>
+      <div class="right">
+        <div class="icon-circle">
+          <svg width="14" height="14" viewBox="0 0 18 18" fill="none" stroke="#13110e" stroke-width="1.6" stroke-linecap="round"><circle cx="8" cy="8" r="5"/><path d="M12 12l3.5 3.5"/></svg>
+        </div>
+        <div style="position:relative">
+          <svg width="20" height="20" viewBox="0 0 18 18" fill="none" stroke="#13110e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13V8a5 5 0 0110 0v5l1.5 2H2.5L4 13z"/><path d="M7 16a2 2 0 004 0"/></svg>
+          <span style="position:absolute;top:0;right:0;width:7px;height:7px;border-radius:50%;background:#e85d2a"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="fauxshare">
+      <div class="card">
+        <div class="top">
+          <div class="wm size-44" style="color:#13110e"><span>ALL FOR</span><span>CLIMBING<span style="color:#e85d2a">.</span></span></div>
+          <span class="send-no">SEND № 047</span>
+        </div>
+        <div class="row">
+          <span class="v">V7</span>
+          <div>
+            <div class="name">Blood Orange</div>
+            <div class="meta">14 attempts · 3 sesh · oak</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero">
+      <span class="label">Onboarding hero</span>
+      <div class="wm" style="color:#fff;font-size:36px;"><span>ALL FOR</span><span>CLIMBING<span style="color:#e85d2a">.</span></span></div>
+      <div class="headline">Find your <em>crew.</em><br/>Send harder.</div>
+      <div class="body">A social network for boulderers. Log sends, share beta, find your gym crew.</div>
+    </div>
+  </section>
+
+  <!-- 04 — Don'ts -->
+  <section class="section">
+    <div class="section-h"><span class="num">04</span><h2>Don'ts</h2><span class="desc">RESPECT THE LOCKUP</span></div>
+    <div class="donts">
+      <div class="cell">
+        <div style="font-family:var(--display);font-size:24px;letter-spacing:-.5px;text-transform:uppercase;color:#13110e">All For Climbing<span style="color:#e85d2a">.</span></div>
+        <span class="lab">✕ Don't run on a single line</span>
+        <span class="why">The two-line stack is the lockup. Always.</span>
+      </div>
+      <div class="cell">
+        <div class="wm size-44" style="color:#e85d2a;align-items:center;text-align:center"><span>ALL FOR</span><span>CLIMBING<span style="color:#13110e">.</span></span></div>
+        <span class="lab">✕ Don't recolor the type</span>
+        <span class="why">Type is ink, paper, or white — never orange.</span>
+      </div>
+      <div class="cell">
+        <div class="wm size-44" style="color:#13110e;align-items:flex-end;text-align:right"><span>ALL FOR</span><span>CLIMBING<span style="color:#e85d2a">.</span></span></div>
+        <span class="lab">✕ Don't right-align or center</span>
+        <span class="why">The two lines always sit flush left.</span>
+      </div>
+      <div class="cell">
+        <div class="wm size-44" style="color:#13110e;font-family:Georgia,serif"><span>ALL FOR</span><span>CLIMBING<span style="color:#e85d2a">.</span></span></div>
+        <span class="lab">✕ Don't change the typeface</span>
+        <span class="why">Archivo Black only. Use the SVG if it's missing.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 — Files -->
+  <section class="section">
+    <div class="section-h"><span class="num">05</span><h2>What's in the Folder</h2><span class="desc">ASSETS · CODE · DOCS</span></div>
+    <div class="file-list">
+<span class="path">wordmark_handoff_AFC/</span><br/>
+├── <b>README.md</b>                              <span class="path">— full spec, rules, sizing, don'ts</span><br/>
+├── <b>preview.html</b>                           <span class="path">— this page</span><br/>
+├── svg/<br/>
+│   ├── <b>wordmark-stack-ink.svg</b>             <span class="path">— DEFAULT, on light surfaces</span><br/>
+│   ├── <b>wordmark-stack-paper.svg</b>           <span class="path">— on dark surfaces</span><br/>
+│   ├── <b>wordmark-stack-white.svg</b>           <span class="path">— on photo (dim ≥35%)</span><br/>
+│   ├── <b>wordmark-stack-mono.svg</b>            <span class="path">— single-color (ink)</span><br/>
+│   └── <b>wordmark-stack-mono-white.svg</b>      <span class="path">— single-color (white)</span><br/>
+├── png/<br/>
+│   ├── <b>wordmark-stack-ink-1024.png</b><br/>
+│   ├── <b>wordmark-stack-paper-1024.png</b><br/>
+│   └── <b>wordmark-stack-white-1024.png</b><br/>
+└── code/<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;└── <b>Wordmark.jsx</b>                       <span class="path">— drop-in React component</span>
+    </div>
+  </section>
+
+  <footer>
+    <span>ALL FOR CLIMBING · WORDMARK HANDOFF</span>
+    <span>DIRECTION 04 · TWO-LINE STACK · APR 2026</span>
+  </footer>
+</div>
+<script>
+  (async () => {
+    try { if (document.fonts && document.fonts.ready) await document.fonts.ready; } catch (e) {}
+    setTimeout(() => window.print(), 500);
+  })();
+</script>
+</body>
+</html>
