@@ -174,15 +174,43 @@ const SCREENS = [
 
 // Wraps a 360×720 share card so it sits visually on the same paper background as a phone-sized canvas.
 function ShareCardArtboard({ children }) {
+  const back = () => window.UC && window.UC.navigate('feed');
   return (
     <div style={{
       width: PHONE_W, height: PHONE_H,
       background: HF.paper,
       display: 'flex', alignItems: 'center', justifyContent: 'center',
+      position: 'relative',
     }}>
+      {/* Top bar with back affordance — always visible, sits above the card. */}
+      <div style={{
+        position: 'absolute', top: 54, left: 14, right: 14, zIndex: 10,
+        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+      }}>
+        <button onClick={back} style={{
+          display: 'inline-flex', alignItems: 'center', gap: 6,
+          padding: '8px 12px',
+          background: HF.ink, color: '#fff',
+          border: 'none', cursor: 'pointer',
+          fontFamily: HF.mono, fontSize: 10, fontWeight: 800, letterSpacing: 1.5,
+          textTransform: 'uppercase',
+          boxShadow: `2px 2px 0 ${HF.accent}`,
+        }}>{HFIcon.back(12, '#fff')} BACK</button>
+        <span style={{
+          fontFamily: HF.mono, fontSize: 9, fontWeight: 800, letterSpacing: 1.5,
+          padding: '6px 9px', background: HF.accent, color: '#fff',
+          textTransform: 'uppercase',
+        }}>SHARE PREVIEW</span>
+      </div>
       <div style={{ boxShadow: '0 24px 48px rgba(0,0,0,0.25), 0 8px 16px rgba(0,0,0,0.18)' }}>
         {children}
       </div>
+      {/* Bottom hint */}
+      <div style={{
+        position: 'absolute', bottom: 28, left: 0, right: 0, textAlign: 'center', zIndex: 10,
+        fontFamily: HF.mono, fontSize: 9, letterSpacing: 1.5, color: HF.ink3, fontWeight: 700,
+        textTransform: 'uppercase',
+      }}>TAP BACK · OR USE THE SCREENS PICKER</div>
     </div>
   );
 }
